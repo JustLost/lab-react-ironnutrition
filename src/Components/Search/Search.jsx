@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Divider, Input } from 'antd';
 
 function Searchbar(props) {
   const [search, setSearch] = useState('');
@@ -9,10 +10,12 @@ function Searchbar(props) {
   };
 
   return (
-    <div>
-      <h2>Search:</h2>
-      <input type="text" value={search} onChange={handleChange} />
-    </div>
+      <>
+        <Divider>Search</Divider>
+        <h2>Search</h2>
+        <label>Search</label>
+        <Input type="text" value={search} onChange={handleChange} />
+      </>
   );
 }
 

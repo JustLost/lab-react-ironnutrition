@@ -1,30 +1,26 @@
 import React from 'react'
 
-import { Card, Row, Col, Divider, Input, Button } from 'antd';
+import { Card, Col, Button } from 'antd';
 
 // Iteration 2
 function FoodBox(props) {
-    const { food, clickToDelete } = props;
+  const { food, clickToDelete } = props;
+  
   return (
-    <div>
-      <Row>
-        <Col>
-          <Card
-            title={food.name}
-            style={{ width: 230, height: 300, margin: 10 }}
-          >
-            <img src={food.image} height={60} alt="food" />
-            <p>Calories: {food.calories}</p>
-            <p>Servings: {food.servings}</p>
-            <p>
-              <b>Total Calories: {food.calories * food.servings}</b>{' '}
-              kcal
-            </p>
-            <Button onClick={() => clickToDelete(food.name)}> Delete </Button>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+    <Col>
+      <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
+        <img src={food.image} height={60} alt="food" />
+        <p>Calories: {food.calories}</p>
+        <p>Servings: {food.servings}</p>
+        <p>
+          <b>Total Calories: {food.calories * food.servings}</b> kcal
+        </p>
+        <Button type="primary" onClick={() => clickToDelete(food.name)}>
+          {' '}
+          Delete{' '}
+        </Button>
+      </Card>
+    </Col>
   );
 }
 

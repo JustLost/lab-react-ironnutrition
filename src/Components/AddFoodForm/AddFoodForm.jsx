@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Divider, Input, Button } from 'antd';
 
 function AddFoodForm(props) {
   const [name, setName] = useState('');
@@ -30,38 +31,38 @@ function AddFoodForm(props) {
   };
   return (
     <div>
-      <h2>Add Food</h2>
+      <Divider>Add Food Entry</Divider>
       <form onSubmit={handleSubmit}>
         <label> Name:</label>
-        <input
+        <Input
           type="text"
           name="name"
           value={name}
           onChange={handleNameInput}
         />
         <label> Image:</label>
-        <input
+        <Input
           type="url"
           name="image"
           value={image}
           onChange={handleImageInput}
         />
         <label> Calories:</label>
-        <input
+        <Input
           type="number"
           name="calories"
           value={calories}
           onChange={handleCaloriesInput}
         />
         <label> Servings:</label>
-        <input
+        <Input
           type="number"
           name="servings"
           value={servings}
           onChange={handleServingsInput}
         />
 
-        <button type="submit"> Add Food</button>
+        <Button type="submit">Create</Button>
       </form>
     </div>
   );

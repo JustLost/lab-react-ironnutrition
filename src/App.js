@@ -1,10 +1,10 @@
 import './App.css';
 import foodsData from './foods.json';
 import FoodBox from './Components/FoodBox/FoodBox';
-import AddFoodForm from './AddFoodForm/AddFoodForm';
+import AddFoodForm from './Components/AddFoodForm/AddFoodForm';
 import React, {useState} from 'react';
 import Searchbar from './Components/Search/Search';
-
+import { Row, Divider, Button } from 'antd';
 
 function App() {
   const [foods, setFood] = useState(foodsData);
@@ -38,18 +38,21 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Food List</h1>
+      
+      <Divider><h1>Food List</h1></Divider>
       <Searchbar search={searchFilter} />
       {showForm && <AddFoodForm addFood={addNewFood}></AddFoodForm>}
-      <hr />
-      <button onClick={toggleShow}>{showForm ? 'Hide Form' : 'Add Food'}</button>
+     
+      <Button onClick={toggleShow}>{showForm ? 'Hide Form' : 'Add  New Food'}</Button>
       {displayFood.map((food) => {
           return (
-            <FoodBox key={food.name} clickToDelete={deleteFood} food={food} />
-            
+            <Row style={{ width: '100%', justifyContent: 'center' }}>
+              {<FoodBox key={food.name} clickToDelete={deleteFood} food={food} />}
+            </Row>
+
           );
         })}
-      {!displayFood.length && <p>Ops! There is no more content to show!</p>}
+      {!displayFood.length && <h3>Ops! There is no more content to show!</h3>}
     </div>
   );
 }
