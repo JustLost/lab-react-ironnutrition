@@ -44,14 +44,14 @@ function App() {
       {showForm && <AddFoodForm addFood={addNewFood}></AddFoodForm>}
      
       <Button onClick={toggleShow}>{showForm ? 'Hide Form' : 'Add  New Food'}</Button>
-      {displayFood.map((food) => {
-          return (
-            <Row style={{ width: '100%', justifyContent: 'center' }}>
-              {<FoodBox key={food.name} clickToDelete={deleteFood} food={food} />}
-            </Row>
-
-          );
-        })}
+      
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
+      {displayFood.map((food) =>{
+       return (
+      <FoodBox key={food.name} clickToDelete={deleteFood} food={food} />
+      )
+       })}
+      </Row>
       {!displayFood.length && <h3>Ops! There is no more content to show!</h3>}
     </div>
   );
